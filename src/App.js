@@ -21,10 +21,12 @@ class App extends React.Component {
       theme : value
     })
   }
-  componentDidUpdate(){
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.theme  !== this.state.theme){
     localStorage.setItem('theme', JSON.stringify(this.state.theme));
+    console.log('update');
+    }
   }
-
 
   render() {
     let theme = this.state.theme;
